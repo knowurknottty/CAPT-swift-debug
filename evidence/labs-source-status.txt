@@ -1,0 +1,6 @@
+ M capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTChatCoordinator.swift
+ M capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTRuntimeModels.swift
+ M capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/ChatView.swift
+ M capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/InspectorView.swift
+ M capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTChatCoordinatorTests.swift
+ M capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTNativeSessionStoreTests.swift

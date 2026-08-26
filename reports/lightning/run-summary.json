@@ -1,0 +1,42 @@
+[
+  {
+    "reviewer": "lightning",
+    "edition": "standard",
+    "pass": "runtime",
+    "status": "accepted",
+    "artifact": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/runtime-lightning/staging/dr-model-be66c0e98aca18913abeb7ed/hermes-analysis-dr-model-be66c0e98aca18913abeb7ed.md",
+    "dest": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/reports/lightning/standard-runtime.md",
+    "elapsed": 196.0,
+    "tag": "lightning-standard-runtime-1787699850-b8d35a"
+  },
+  {
+    "reviewer": "lightning",
+    "edition": "standard",
+    "pass": "surface",
+    "status": "accepted",
+    "artifact": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/runtime-lightning/staging/dr-model-4e8d821cae4065f0c2b34cee/hermes-analysis-dr-model-4e8d821cae4065f0c2b34cee.md",
+    "dest": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/reports/lightning/standard-surface.md",
+    "elapsed": 511.3,
+    "tag": "lightning-standard-surface-1787700046-5ae932"
+  },
+  {
+    "reviewer": "lightning",
+    "edition": "labs",
+    "pass": "runtime",
+    "status": "accepted",
+    "artifact": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/runtime-lightning/staging/dr-model-fd253b32e7335bfc15bb84e2/hermes-analysis-dr-model-fd253b32e7335bfc15bb84e2.md",
+    "dest": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/reports/lightning/labs-runtime.md",
+    "elapsed": 161.05,
+    "tag": "lightning-labs-runtime-1787700557-c8194f"
+  },
+  {
+    "reviewer": "lightning",
+    "edition": "labs",
+    "pass": "surface",
+    "status": "accepted",
+    "artifact": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/runtime-lightning/staging/dr-model-6aea5c9972ec33e01ff3f1d1/hermes-analysis-dr-model-6aea5c9972ec33e01ff3f1d1.md",
+    "dest": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/reports/lightning/labs-surface.md",
+    "elapsed": 1.19,
+    "tag": "lightning-labs-surface-1787700718-acb71b"
+  }
+]

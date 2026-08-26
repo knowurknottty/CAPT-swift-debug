@@ -1,0 +1,42 @@
+[
+  {
+    "reviewer": "super",
+    "edition": "standard",
+    "pass": "runtime",
+    "status": "accepted",
+    "artifact": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/runtime-super/staging/dr-model-55ea8cf6c06beab6cbaabf9a/hermes-analysis-dr-model-55ea8cf6c06beab6cbaabf9a.md",
+    "dest": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/reports/super/standard-runtime.md",
+    "elapsed": 144.04,
+    "tag": "super-standard-runtime-1787703194-5df75d"
+  },
+  {
+    "reviewer": "super",
+    "edition": "standard",
+    "pass": "surface",
+    "status": "accepted",
+    "artifact": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/runtime-super/staging/dr-model-eecb3b0c1fd5303ceeb98405/hermes-analysis-dr-model-eecb3b0c1fd5303ceeb98405.md",
+    "dest": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/reports/super/standard-surface.md",
+    "elapsed": 72.67,
+    "tag": "super-standard-surface-1787703338-b09023"
+  },
+  {
+    "reviewer": "super",
+    "edition": "labs",
+    "pass": "runtime",
+    "status": "accepted",
+    "artifact": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/runtime-super/staging/dr-model-07791585700249044a6a8fec/hermes-analysis-dr-model-07791585700249044a6a8fec.md",
+    "dest": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/reports/super/labs-runtime.md",
+    "elapsed": 544.38,
+    "tag": "super-labs-runtime-1787703411-384eed"
+  },
+  {
+    "reviewer": "super",
+    "edition": "labs",
+    "pass": "surface",
+    "status": "accepted",
+    "artifact": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/runtime-super/staging/dr-model-b1d5418ae26a5f16242278ad/hermes-analysis-dr-model-b1d5418ae26a5f16242278ad.md",
+    "dest": "/Users/knowurknot/.capt/reviews/capt-swift-full-audit-20260825/reports/super/labs-surface.md",
+    "elapsed": 226.88,
+    "tag": "super-labs-surface-1787703955-096700"
+  }
+]

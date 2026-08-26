@@ -1,0 +1,163 @@
+diff --git a/capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTChatCoordinator.swift b/capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTChatCoordinator.swift
+index 3b71774..4853225 100644
+--- a/capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTChatCoordinator.swift
++++ b/capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTChatCoordinator.swift
+@@ -49,6 +49,7 @@ public final class CAPTChatCoordinator {
+         let taskID = try Self.requireString("taskId", from: result)
+         let driverRunID = try Self.requireString("driverRunId", from: result)
+         let digest = try Self.requireString("promptAssemblyDigest", from: result)
++        let skillNames = result["skillNames"] as? [String] ?? []
+         let expiresAt = (result["expiresAt"] as? String).flatMap(Self.parseTimestamp)
+         return CAPTPendingApproval(
+             requestID: requestID,
+@@ -60,6 +61,7 @@ public final class CAPTChatCoordinator {
+             provider: provider,
+             model: model,
+             promptAssemblyDigest: digest,
++            skillNames: skillNames,
+             expiresAt: expiresAt
+         )
+     }
+diff --git a/capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTRuntimeModels.swift b/capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTRuntimeModels.swift
+index 056cba6..d044d6b 100644
+--- a/capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTRuntimeModels.swift
++++ b/capt_ui/surfaces/desktop_swift/Sources/CAPTCoreDesktop/CAPTRuntimeModels.swift
+@@ -62,6 +62,7 @@ public struct CAPTPendingApproval: Codable, Equatable, Sendable {
+     public let provider: String
+     public let model: String
+     public let promptAssemblyDigest: String
++    public let skillNames: [String]
+     public let expiresAt: Date?
+ 
+     public init(
+@@ -74,6 +75,7 @@ public struct CAPTPendingApproval: Codable, Equatable, Sendable {
+         provider: String,
+         model: String,
+         promptAssemblyDigest: String,
++        skillNames: [String] = [],
+         expiresAt: Date? = nil
+     ) {
+         self.requestID = requestID
+@@ -85,9 +87,30 @@ public struct CAPTPendingApproval: Codable, Equatable, Sendable {
+         self.provider = provider
+         self.model = model
+         self.promptAssemblyDigest = promptAssemblyDigest
++        self.skillNames = skillNames
+         self.expiresAt = expiresAt
+     }
+ 
++    private enum CodingKeys: String, CodingKey {
++        case requestID, missionID, taskID, driverRunID, objective, targetRoot
++        case provider, model, promptAssemblyDigest, skillNames, expiresAt
++    }
++
++    public init(from decoder: Decoder) throws {
++        let c = try decoder.container(keyedBy: CodingKeys.self)
++        requestID = try c.decode(String.self, forKey: .requestID)
++        missionID = try c.decode(String.self, forKey: .missionID)
++        taskID = try c.decode(String.self, forKey: .taskID)
++        driverRunID = try c.decode(String.self, forKey: .driverRunID)
++        objective = try c.decode(String.self, forKey: .objective)
++        targetRoot = try c.decode(String.self, forKey: .targetRoot)
++        provider = try c.decode(String.self, forKey: .provider)
++        model = try c.decode(String.self, forKey: .model)
++        promptAssemblyDigest = try c.decode(String.self, forKey: .promptAssemblyDigest)
++        skillNames = try c.decodeIfPresent([String].self, forKey: .skillNames) ?? []
++        expiresAt = try c.decodeIfPresent(Date.self, forKey: .expiresAt)
++    }
++
+     public func validity(at date: Date = Date()) -> CAPTApprovalValidity {
+         guard let expiresAt else { return .unknown }
+         return expiresAt <= date ? .expired : .valid
+diff --git a/capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/ChatView.swift b/capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/ChatView.swift
+index 2f8a644..c86cff9 100644
+--- a/capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/ChatView.swift
++++ b/capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/ChatView.swift
+@@ -145,6 +145,12 @@ private struct ApprovalCard: View {
+             LabeledContent("Prompt digest", value: pending.promptAssemblyDigest)
+                 .font(.caption2.monospaced())
+                 .lineLimit(1)
++            if !pending.skillNames.isEmpty {
++                LabeledContent("Skills", value: pending.skillNames.joined(separator: " · "))
++                    .font(.caption)
++                    .foregroundStyle(.secondary)
++                    .textSelection(.enabled)
++            }
+             if let expiresAt = pending.expiresAt {
+                 LabeledContent(
+                     "Expires",
+diff --git a/capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/InspectorView.swift b/capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/InspectorView.swift
+index 8c85e9e..c4748a7 100644
+--- a/capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/InspectorView.swift
++++ b/capt_ui/surfaces/desktop_swift/Sources/CAPTNativeMac/Views/InspectorView.swift
+@@ -58,6 +58,12 @@ struct InspectorView: View {
+                                 .font(.caption2.monospaced())
+                                 .foregroundStyle(.secondary)
+                                 .lineLimit(2)
++                            if !pending.skillNames.isEmpty {
++                                Text("Skills: " + pending.skillNames.joined(separator: " · "))
++                                    .font(.caption)
++                                    .foregroundStyle(.secondary)
++                                    .textSelection(.enabled)
++                            }
+                         }
+                         .frame(maxWidth: .infinity, alignment: .leading)
+                     } else {
+diff --git a/capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTChatCoordinatorTests.swift b/capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTChatCoordinatorTests.swift
+index a80a846..66e1226 100644
+--- a/capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTChatCoordinatorTests.swift
++++ b/capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTChatCoordinatorTests.swift
+@@ -130,3 +130,25 @@ extension CAPTChatCoordinatorTests {
+         }
+     }
+ }
++
++extension CAPTChatCoordinatorTests {
++    func testRequestPreservesSelectedSkillNamesForOperatorReview() throws {
++        let client = MockRuntimeClient()
++        var response = approvalResponse()
++        var result = response["result"] as! [String: Any]
++        result["skillNames"] = ["inversion-execute-now", "inversion-release-closure"]
++        response["result"] = result
++        client.responses["request_model_prompt_approval"] = response
++        let coordinator = CAPTChatCoordinator(client: client)
++
++        let pending = try coordinator.requestApproval(
++            objective: "proceed and ship", targetRoot: "/repo",
++            provider: "ollama", model: "model-a"
++        )
++
++        XCTAssertEqual(
++            pending.skillNames,
++            ["inversion-execute-now", "inversion-release-closure"]
++        )
++    }
++}
+diff --git a/capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTNativeSessionStoreTests.swift b/capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTNativeSessionStoreTests.swift
+index c555238..76fa8d2 100644
+--- a/capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTNativeSessionStoreTests.swift
++++ b/capt_ui/surfaces/desktop_swift/Tests/CAPTCoreDesktopTests/CAPTNativeSessionStoreTests.swift
+@@ -154,6 +154,23 @@ final class CAPTNativeSessionStoreTests: XCTestCase {
+         XCTAssertEqual((fileAttributes[.posixPermissions] as? NSNumber)?.intValue, 0o600)
+     }
+ 
++    func testPendingApprovalDecodesLegacyPayloadWithoutSkillNames() throws {
++        let data = try JSONSerialization.data(withJSONObject: [
++            "requestID": "approval-legacy-shape",
++            "missionID": "mission-legacy-shape",
++            "taskID": "task-legacy-shape",
++            "driverRunID": "run-legacy-shape",
++            "objective": "legacy",
++            "targetRoot": "/repo",
++            "provider": "ollama",
++            "model": "qwen",
++            "promptAssemblyDigest": "sha256:" + String(repeating: "d", count: 64),
++        ])
++        let decoded = try JSONDecoder().decode(CAPTPendingApproval.self, from: data)
++        XCTAssertEqual(decoded.requestID, "approval-legacy-shape")
++        XCTAssertEqual(decoded.skillNames, [])
++    }
++
+     func testMissingSessionCacheLoadsEmpty() throws {
+         let file = FileManager.default.temporaryDirectory
+             .appendingPathComponent(UUID().uuidString)

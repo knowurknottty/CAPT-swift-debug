@@ -1,0 +1,33 @@
+APP=/Users/knowurknot/Applications/Inversion Labs CAPT.app
+--- codesign verify
+/Users/knowurknot/Applications/Inversion Labs CAPT.app: valid on disk
+/Users/knowurknot/Applications/Inversion Labs CAPT.app: satisfies its Designated Requirement
+verify_exit=0
+--- codesign details
+Executable=/Users/knowurknot/Applications/Inversion Labs CAPT.app/Contents/MacOS/CAPTNativeMac
+Identifier=com.inversionlabs.capt.lab
+Format=app bundle with Mach-O thin (arm64)
+CodeDirectory v=20400 size=8638 flags=0x0(none) hashes=263+3 location=embedded
+Hash type=sha256 size=32
+CandidateCDHash sha256=69b7a528b2955d1fb4a0f3317a5b31294ac6eaa7
+CandidateCDHashFull sha256=69b7a528b2955d1fb4a0f3317a5b31294ac6eaa7de29119ffc133ed4dbb2407a
+Hash choices=sha256
+CMSDigest=69b7a528b2955d1fb4a0f3317a5b31294ac6eaa7de29119ffc133ed4dbb2407a
+CMSDigestType=2
+CDHash=69b7a528b2955d1fb4a0f3317a5b31294ac6eaa7
+Signature size=4790
+Authority=Apple Development: knowurknottty@gmail.com (97A74KZXGR)
+Authority=Apple Worldwide Developer Relations Certification Authority
+Authority=Apple Root CA
+Signed Time=Aug 25, 2026 at 8:26:44 AM
+Info.plist entries=9
+TeamIdentifier=49FBXNL38U
+Sealed Resources version=2 rules=13 files=0
+Internal requirements count=1 size=200
+--- entitlements
+Executable=/Users/knowurknot/Applications/Inversion Labs CAPT.app/Contents/MacOS/CAPTNativeMac
+warning: Specifying ':' in the path is deprecated and will not work in a future release
+--- spctl
+/Users/knowurknot/Applications/Inversion Labs CAPT.app: rejected
+origin=Apple Development: knowurknottty@gmail.com (97A74KZXGR)
+spctl_exit=3

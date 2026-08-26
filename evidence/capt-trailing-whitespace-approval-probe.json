@@ -1,0 +1,6 @@
+{
+  "objective_repr": "'Reply exactly READY.\\n'",
+  "approval": "accepted",
+  "run": "rejected",
+  "detail": "MODEL_PROMPT_APPROVAL_DIGEST_MISMATCH"
+}

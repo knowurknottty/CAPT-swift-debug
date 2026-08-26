@@ -1,0 +1,33 @@
+APP=/Users/knowurknot/Applications/CAPT.app
+--- codesign verify
+/Users/knowurknot/Applications/CAPT.app: valid on disk
+/Users/knowurknot/Applications/CAPT.app: satisfies its Designated Requirement
+verify_exit=0
+--- codesign details
+Executable=/Users/knowurknot/Applications/CAPT.app/Contents/MacOS/CAPTNativeMac
+Identifier=com.inversionlabs.capt
+Format=app bundle with Mach-O thin (arm64)
+CodeDirectory v=20400 size=7514 flags=0x0(none) hashes=228+3 location=embedded
+Hash type=sha256 size=32
+CandidateCDHash sha256=50dccd59e8708efc17ca8959ff58d50fabc368da
+CandidateCDHashFull sha256=50dccd59e8708efc17ca8959ff58d50fabc368da5a40ae3f0774d5642ee508dd
+Hash choices=sha256
+CMSDigest=50dccd59e8708efc17ca8959ff58d50fabc368da5a40ae3f0774d5642ee508dd
+CMSDigestType=2
+CDHash=50dccd59e8708efc17ca8959ff58d50fabc368da
+Signature size=4790
+Authority=Apple Development: knowurknottty@gmail.com (97A74KZXGR)
+Authority=Apple Worldwide Developer Relations Certification Authority
+Authority=Apple Root CA
+Signed Time=Aug 25, 2026 at 8:26:25 AM
+Info.plist entries=9
+TeamIdentifier=49FBXNL38U
+Sealed Resources version=2 rules=13 files=0
+Internal requirements count=1 size=196
+--- entitlements
+Executable=/Users/knowurknot/Applications/CAPT.app/Contents/MacOS/CAPTNativeMac
+warning: Specifying ':' in the path is deprecated and will not work in a future release
+--- spctl
+/Users/knowurknot/Applications/CAPT.app: rejected
+origin=Apple Development: knowurknottty@gmail.com (97A74KZXGR)
+spctl_exit=3
