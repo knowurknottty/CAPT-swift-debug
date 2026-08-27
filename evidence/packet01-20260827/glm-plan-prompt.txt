@@ -1,0 +1,47 @@
+PACKET 01 — PLANNING ONLY. Do not modify production source code yet.
+
+You are the first implementation seat in an Inversion Labs CAPT sprint. Work only in the already-bound target root. Inspect the current repository and write an implementation spec + TDD execution plan for Packet 01. Do not touch shared checkouts, do not merge/push, and do not claim anything you did not inspect.
+
+Core architecture to plan:
+1. Canonical context epoch ceiling = 65,536 tokens. Preserve the existing mandatory 32,768-token memory-maintenance cadence; do NOT replace it with 64K.
+2. Before every model dispatch, CAPT must admit/reject the projected turn based on current context + next prompt/tool/context payload + reserved output. No dispatch may cross the 65,536 epoch ceiling.
+3. On pressure: checkpoint governed mission/task state -> CAPTMem offload -> bounded ContextPack -> rotate conversation epoch -> reinject -> continue. If safe compaction cannot fit, force fresh-session reset + ContextPack reinjection.
+4. Mission continuity belongs to CAPT; conversation continuity is disposable. Preserve mission/task/checkpoint/provenance across model swaps, resets, Hermes, and restarts.
+5. Add a typed CAPTControlDirective with actions CONTINUE, COMPACT_AND_CONTINUE, RESET_AND_CONTINUE, RETRY, REPLAN, ESCALATE, COMPLETE. Never use magic model-output strings as authority.
+6. Build a CAPT-native Mission Resolver that repeatedly selects the deterministic READY task, assembles a governed WorkOrder, applies context admission, dispatches, ingests observations/artifacts, verifies, passes ClaimGuard, and advances/retries/replans/escalates/completes. A model may propose completion but may not mark itself complete.
+7. Fold the useful Weak-Model Carry semantics into the resolver: Mission Anchor, Strategy Governor, no-new-evidence/repetition detector, Claim Calibrator, Runtime Identity Lock, Context Distiller, Escalation Router, GoalAncestry, safe re-entry.
+8. Hermes is compatibility only. Prefer CAPT-native reset/rotation/resume control. Use a Hermes skill/Sail only if a lifecycle operation cannot be invoked cleanly from the driver. Hermes must not own mission authority.
+9. Ingest provider/Hermes usage receipts where trustworthy. Add bounded runaway controls: max model calls/mission, retries/task, consecutive no-new-evidence turns, wall-clock, token budget, cost budget field, provider/model identity, context epoch budget.
+
+Required acceptance gates:
+- one canonical 65,536 context-epoch policy across runtime/driver/UI surfaces;
+- 32,768 memory maintenance remains proven;
+- projected-turn admission prevents overflow;
+- accounting includes system/context/skills/tool outputs/reserved output;
+- trusted provider usage can supersede estimates;
+- checkpoint/offload/ContextPack/rotation/reinjection works;
+- oversize/invalid compaction fails to reset-and-continue rather than unsafe dispatch;
+- provenance survives epoch/model/session changes;
+- Hermes cannot widen/suppress policy;
+- no model-generated magic control strings;
+- Mission Resolver selects next eligible task automatically;
+- failed verification cannot advance;
+- bounded retry/replan/no-progress behavior;
+- crash/restart resumes from canonical CAPT state;
+- cross-model mission continuation proof;
+- one real Hermes synthetic >64K rollover proof;
+- regressions remain green.
+
+Also include a small Task 0 frontend dogfood hardening slice, based on observed evidence today:
+- New Chat currently waits on async operatorSnapshot before local session creation and appears dead under runtime pressure;
+- installed Labs can relaunch frontmost with zero windows after its prior window disappears;
+- provider/model persisted state can become incoherent (e.g. local provider paired with remote stealth model);
+- Labs runtime/operator CLI bootstrap paths can disagree under isolated state roots;
+- UI/reporting must not claim success when visible state disagrees.
+Keep these fixes scoped so they unblock multi-chat dogfooding but do not consume the core Packet 01 architecture.
+
+Deliverables:
+A. docs/superpowers/specs/2026-08-27-packet01-context-epoch-mission-resolver.md
+B. docs/superpowers/plans/2026-08-27-packet01-context-epoch-mission-resolver.md
+C. In the plan, use small TDD tasks, exact files/interfaces/tests/commands, dependency order, commit boundaries, and explicit verification evidence. Include a baseline note: Swift desktop suite currently passes 66 tests with 7 opt-in skips at starting HEAD 3aee7370bac880aed99ce3c9ecfaa6d9ff48101e.
+D. Do not implement. Return a concise summary of architectural decisions, highest-risk assumptions, and the first red test to write.

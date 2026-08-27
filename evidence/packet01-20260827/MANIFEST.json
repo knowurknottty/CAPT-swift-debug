@@ -1,0 +1,318 @@
+{
+  "packet": "packet01",
+  "captured_source": "~/.capt-inversion-labs/dogfood/packet01",
+  "screenshot_cutoff": "prefix <= 030 (inclusive)",
+  "screenshot_count": 61,
+  "screenshots": [
+    {
+      "file": "screenshots/001-inversion-labs-capt-baseline.png",
+      "bytes": 500150,
+      "sha256": "ff260abca972a51febd9cc818141b0a5a6db5626f8ea9c8af35c0cb274abe523"
+    },
+    {
+      "file": "screenshots/002-capt-pid-frontmost-attempt.png",
+      "bytes": 491127,
+      "sha256": "52f8b687a91618bd41f002587916f4eac84717c50b64a80207d809a4bf3a22ca"
+    },
+    {
+      "file": "screenshots/003-labs-zero-window-frontmost.png",
+      "bytes": 559811,
+      "sha256": "c38e968f4d264551f8bb597750663d467e1dfaf1c4286549fae081e0c5ccda7a"
+    },
+    {
+      "file": "screenshots/004-labs-second-display-baseline.png",
+      "bytes": 920874,
+      "sha256": "c973982c6301d0f0679869a17f38cab90744cfc5f72a0d44c2816122f22843a5"
+    },
+    {
+      "file": "screenshots/005-labs-pre-glm-chat.png",
+      "bytes": 843077,
+      "sha256": "f32306ef21923b866ab0bffc56d2d38017baffa12dc3b09ac87e41627c675317"
+    },
+    {
+      "file": "screenshots/005-providers-after-refresh-attempt.jpg",
+      "bytes": 382795,
+      "sha256": "1dc0a1f3e27a232b8393253f16c9d3b2a9da19e1b48da2dce1b2ea047f424f9e"
+    },
+    {
+      "file": "screenshots/006-labs-new-chat-click.png",
+      "bytes": 796149,
+      "sha256": "86fbe291f58252db289a7418c0153bb04faf92d0b63097724579ec5f3cd49ecc"
+    },
+    {
+      "file": "screenshots/006-providers-after-connect-capt-crop.jpg",
+      "bytes": 85729,
+      "sha256": "42e864fae647520b15ebae1605952545fb28512fc5118d20f37f178ba261949f"
+    },
+    {
+      "file": "screenshots/006-providers-after-connect-capt-pixelcrop.jpg",
+      "bytes": 82389,
+      "sha256": "4faf5e0a2aecf54fe9d1f5ffa6f4cd3015d4f9bdf69eea5e66ec0201383c0ada"
+    },
+    {
+      "file": "screenshots/006-providers-after-connect-capt-window.jpg",
+      "bytes": 164294,
+      "sha256": "b81abf48839543fbabf4ab5630e366c7f4c7f352ac245d34318d9af05a9999fd"
+    },
+    {
+      "file": "screenshots/006-providers-after-connect.jpg",
+      "bytes": 382795,
+      "sha256": "1dc0a1f3e27a232b8393253f16c9d3b2a9da19e1b48da2dce1b2ea047f424f9e"
+    },
+    {
+      "file": "screenshots/007-labs-diagnostic-view.jpg",
+      "bytes": 430618,
+      "sha256": "b36920512b49ba9fcb241aa5ffd1c2e64afe995a13cc5590af424b9e4450ae91"
+    },
+    {
+      "file": "screenshots/007-labs-providers-before-openrouter.png",
+      "bytes": 973811,
+      "sha256": "9578647981e437f124c092752f0ad1ae0d63c68a795669288fd54161470ab924"
+    },
+    {
+      "file": "screenshots/007-labs-window-crop.jpg",
+      "bytes": 136311,
+      "sha256": "8822b4925fde77284a16860e84cd1df71d23b112d593fea823380628ee21b7c2"
+    },
+    {
+      "file": "screenshots/008-labs-after-connect.png",
+      "bytes": 1068364,
+      "sha256": "3f06aee97a3a9d484ae4e0688d1137ee4d9ccbf8813228ebdcef58eda74e045e"
+    },
+    {
+      "file": "screenshots/008-labs-runtime-page.jpg",
+      "bytes": 430608,
+      "sha256": "72434370b7a124f9adc6187be0d2d79afad1f80ebdd48b1bfaccc559bd1b18a7"
+    },
+    {
+      "file": "screenshots/009-installed-labs-providers-focused.png",
+      "bytes": 991886,
+      "sha256": "7f316a52485555e48859b19e2e625f0cf596343ce0617ca01afadfc9c07c3a3d"
+    },
+    {
+      "file": "screenshots/009-row20-selected.jpg",
+      "bytes": 430023,
+      "sha256": "01b07697c863d04fab7eb7ea2912a4e6551dd0b8d5766d046800574c347366bc"
+    },
+    {
+      "file": "screenshots/010-labs-keychain-check.png",
+      "bytes": 946574,
+      "sha256": "66dc4d18358a80af720f6ba2a69fad309b6b98e49eab5be25ce813bd6b760106"
+    },
+    {
+      "file": "screenshots/010-row20-axpress.jpg",
+      "bytes": 415193,
+      "sha256": "1dddd43d35fd5340b76b9477037df674a143388d1405e8aa6271907087cacd68"
+    },
+    {
+      "file": "screenshots/011-labs-resume-check.png",
+      "bytes": 619595,
+      "sha256": "19b7bef36d8b921a8ba654c0fcae0183c4007903541d6f620d2837e3f2399a9d"
+    },
+    {
+      "file": "screenshots/011-resume-check.png",
+      "bytes": 836619,
+      "sha256": "8373160e365649c702ed60ce5bab88654d255cd9058fe6308551b3503fa7a253"
+    },
+    {
+      "file": "screenshots/012-installed-labs-not-running.png",
+      "bytes": 635373,
+      "sha256": "4b2262acd1bb7c9336c9134d8a10c23e3fe68e2eb4384a79509fc1c41045bc26"
+    },
+    {
+      "file": "screenshots/012-installed-labs-reactivated.png",
+      "bytes": 1152414,
+      "sha256": "252b25b8c7710af864a50e50887e21ea3761394107b5340420c8587c10a3eaa2"
+    },
+    {
+      "file": "screenshots/013-installed-labs-provider-click.png",
+      "bytes": 1277446,
+      "sha256": "70baff408dac568c3bd25b010bc6a810e9eaaf419be17392ab8ddb4db5eebea2"
+    },
+    {
+      "file": "screenshots/013-installed-labs-relaunched.png",
+      "bytes": 888323,
+      "sha256": "f1cfa60defa52d3949219b5c830e46811221542c0385d76ff5a2d54835c4013f"
+    },
+    {
+      "file": "screenshots/014-installed-labs-providers-measured-click.png",
+      "bytes": 1332894,
+      "sha256": "4ede4668b8bfe94dc6a9ed4dc9ded0872f8240b235c202e19029e07b4c6dd70e"
+    },
+    {
+      "file": "screenshots/014-installed-labs-raised-after-relaunch.png",
+      "bytes": 848563,
+      "sha256": "139448ddda4dc895c81f3d7407c97985dd991abf25192d19dc5ab6c8b7bcc69b"
+    },
+    {
+      "file": "screenshots/015-installed-labs-providers-calibrated.png",
+      "bytes": 895868,
+      "sha256": "f58ae707f7f728339e12f51afeb82886bcbe788fc4594c877bc8e6594aa3ccb2"
+    },
+    {
+      "file": "screenshots/015-installed-labs-window-region.png",
+      "bytes": 292231,
+      "sha256": "12cb6eee0e2a1b4d2f6109d5b2acf984e020ee5520754a6bf331a3c3749f5caa"
+    },
+    {
+      "file": "screenshots/016-installed-labs-main-display.png",
+      "bytes": 3050489,
+      "sha256": "ad7da365d9ba83c50cd306cb237244773c0864301080b624840e700593ca33f1"
+    },
+    {
+      "file": "screenshots/016-installed-labs-providers-final.png",
+      "bytes": 970607,
+      "sha256": "046597385b1bfa19b307d398c705ba1a6e7a3e1330a52dd12e0f76b819d4921f"
+    },
+    {
+      "file": "screenshots/017-installed-labs-providers.png",
+      "bytes": 2271998,
+      "sha256": "5ce570ec990b4ba2541e3d3865080c683f6d61f7efd425913af3554387d36d15"
+    },
+    {
+      "file": "screenshots/017-openrouter-use-after.png",
+      "bytes": 994004,
+      "sha256": "580b57102ae3771121148c36f67f2e5352efe1289fa1397e4c680e20b1f7f099"
+    },
+    {
+      "file": "screenshots/018-installed-labs-refocused.png",
+      "bytes": 2302844,
+      "sha256": "d97ec3f3aa27d3c034b884c4d19253a7cee009f756f2aba6933d1dc819b49b16"
+    },
+    {
+      "file": "screenshots/018-postmerge-labs-current-diagnostic.png",
+      "bytes": 892696,
+      "sha256": "ca012bfdd83a2114354292ccaaf97c09057186399ede26f55be15c2bd6b110ec"
+    },
+    {
+      "file": "screenshots/019-after-runtime-upgrade-before-connect.png",
+      "bytes": 999556,
+      "sha256": "517a3f18cbe8141088c4c953d8375d8c2c9ef5d516993fc6566ec67db081fd21"
+    },
+    {
+      "file": "screenshots/019-installed-labs-force-activated.png",
+      "bytes": 2642479,
+      "sha256": "1537e0247e62381934c5038011884dbd771bdaec3f6d06d1971c16eefa936239"
+    },
+    {
+      "file": "screenshots/020-after-connect-current-runtime.png",
+      "bytes": 881713,
+      "sha256": "703ccd030d0acb21dde57ace7864138d75eab5f513420c4993e6bbaef167db50"
+    },
+    {
+      "file": "screenshots/020-installed-labs-provider-surface.png",
+      "bytes": 2737757,
+      "sha256": "076c9be618d8a77b8ab3466f4a416e70791ea737da538c7129e2c8faecee5e97"
+    },
+    {
+      "file": "screenshots/021-installed-labs-keyboard-to-providers.png",
+      "bytes": 3218381,
+      "sha256": "0733a9e20d188a191b3c969f7326a2841407fa0167d2eb9b3fb1a383658c697c"
+    },
+    {
+      "file": "screenshots/021-providers-after-runtime-fix.png",
+      "bytes": 882239,
+      "sha256": "6e825c0920a51dfac40da5755aca47872d65141796c3c6969dcea29da6fff489"
+    },
+    {
+      "file": "screenshots/022-glm-target-root-set.png",
+      "bytes": 867584,
+      "sha256": "377680e87d299c74a6a10902143ab2ae3af98a5a49ba7289bdbd909860036718"
+    },
+    {
+      "file": "screenshots/022-installed-labs-fresh-glm-chat.png",
+      "bytes": 3217785,
+      "sha256": "3ddc90a602643d030c9fbe2719545e5a6f8ede90ef25c669113fb468bafeff09"
+    },
+    {
+      "file": "screenshots/023-installed-labs-clean-relaunch.png",
+      "bytes": 928361,
+      "sha256": "c9de016f67d41739f10b08221b1decf0e035c7c41e3528c83f306ab5ac7604b5"
+    },
+    {
+      "file": "screenshots/023-installed-labs-fresh-glm-chat-corrected.png",
+      "bytes": 3220111,
+      "sha256": "b3900850917f9596fa7ec828556d6cb9588ac37fb1d11ad2e7d222561fc22ca8"
+    },
+    {
+      "file": "screenshots/024-installed-labs-new-chat-menu.png",
+      "bytes": 3218674,
+      "sha256": "2a333b13091a3963bb03bbe97aa849ac64d143e70aa47f75585cb549a7b1c442"
+    },
+    {
+      "file": "screenshots/024-packet01-dedicated-frontend.png",
+      "bytes": 933481,
+      "sha256": "80e8a6a3db3db5e37fbf9b24ecd362f471d0dec5da308429530ab26ddeed8326"
+    },
+    {
+      "file": "screenshots/025-installed-labs-new-chat-after-wait.png",
+      "bytes": 2311826,
+      "sha256": "4b42eff9be6a09a81d19111e5eea5b5fc75c01d0190dfbc772bfb8579d274229"
+    },
+    {
+      "file": "screenshots/025-packet01-persistent-frontend.png",
+      "bytes": 966025,
+      "sha256": "0ebbd543136a22bc0f436c379fe6c33dd73a52ea8da96adb8161ac8e0b97380f"
+    },
+    {
+      "file": "screenshots/026-installed-labs-relaunch-for-glm.png",
+      "bytes": 2301463,
+      "sha256": "e0529f9d8f5dc1b06f64cc7ba7c8b5a888f031314300ecf4617d1dc585e86585"
+    },
+    {
+      "file": "screenshots/026-target-root-corrected-installed-labs.png",
+      "bytes": 974498,
+      "sha256": "bfafb98a79eb8add97e0ee846e8c6ba7d89458aaa14875d4ef46f8ea95204d36"
+    },
+    {
+      "file": "screenshots/027-labs-current-r2-baseline.png",
+      "bytes": 939725,
+      "sha256": "74baa18a059da4e9273f90b055d25a812e8d9fdf5f119f446fcec1aeaf9fd0af"
+    },
+    {
+      "file": "screenshots/027-p01-isolated-client-launch.png",
+      "bytes": 2323137,
+      "sha256": "6be35771a92c9af3283890e8aedd3b14f1dc2a1efaa571afa0baf48adfd3694a"
+    },
+    {
+      "file": "screenshots/027b-p01-isolated-client-launch-display2.png",
+      "bytes": 1237989,
+      "sha256": "f81ba419288ab6e67edfe433645a7a4e3a071741c15000d9eb61fa424b301523"
+    },
+    {
+      "file": "screenshots/028-p01-window-only-launch.png",
+      "bytes": 395265,
+      "sha256": "681b20042a864888e9014ba4ed2641a7eff1790f1af19c5b5185e5ed981d4ea6"
+    },
+    {
+      "file": "screenshots/028-target-root-r2-corrected.png",
+      "bytes": 938425,
+      "sha256": "56a04e4504eab12be082ebb22c8d192c96eb02dc2a921820439ca6ebd830195c"
+    },
+    {
+      "file": "screenshots/029-glm-gatea-submitted.png",
+      "bytes": 981364,
+      "sha256": "84af400d9bb96e62ba58fa37660122f54e6be419a4d7e23dd291408fc2cca94b"
+    },
+    {
+      "file": "screenshots/029-p01-isolated-correct-root.png",
+      "bytes": 431439,
+      "sha256": "410da92686a58efa1903bbcae3e696f2e81a07e5554a58950d00a485d239f436"
+    },
+    {
+      "file": "screenshots/030-glm-prompt-composed.png",
+      "bytes": 1036888,
+      "sha256": "3925e4e66c3d13f1559fdd92a11f5b47b9d0ffe7a55adece9407202901b2f401"
+    },
+    {
+      "file": "screenshots/030-p01-after-operator-refresh.png",
+      "bytes": 421128,
+      "sha256": "b99f4e4a00f09bfac16252ccaceebccf16a17a11e981c29612033487cd578625"
+    }
+  ],
+  "excluded": [
+    "state/",
+    "Inversion Labs CAPT Packet01.app/"
+  ],
+  "exclusion_reason": "runtime state contains credentials/tokens/ephemeral IPC or bulky executable state unsuitable for the public debug repo"
+}
